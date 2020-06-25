@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Auto-Service Liste</title>
+</head>
+<body>
+<h1>Autos</h1>
+<form th:action="@{/}">
+    <input th:if="${ !#ctx.containsVariable('all') }" type="hidden" name="all" value="true">
+    <button>[[ ${all} ? 'nur noch nicht servicierte' : 'alle' ]] Autos anzeigen</button>
+</form>
+<ul>
+    <li th:each="car: ${cars}">
+        [[ ${car.name} ]]
+    </li>
+</ul>
+</body>
+</html>
